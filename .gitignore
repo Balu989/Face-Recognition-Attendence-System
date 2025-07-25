@@ -1,0 +1,55 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+
+# --- Flask / Instance Folder ---
+instance/
+*.pyc
+
+# --- Flask DB / Migrations ---
+*.sqlite3
+*.db
+migrations/
+
+# --- Logs ---
+*.log
+
+# --- Environment Variables ---
+.env
+.env.*
+
+# --- IDEs ---
+.vscode/
+.idea/
+
+# --- Packaging ---
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- Coverage and Testing ---
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.coverage
+coverage.xml
+.cache
+
+# --- MyPy ---
+.mypy_cache/
+
+# --- System Files ---
+.DS_Store
+Thumbs.db

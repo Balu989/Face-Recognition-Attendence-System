@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-[#FFFBDE] text-[#333]">
+
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center text-[#4682A9]">Login to Your Account</h2>
+
+    <form method="POST" class="space-y-5">
+      <input name="email" type="email" placeholder="Email"
+             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4682A9]" required />
+
+      <input name="password" type="password" placeholder="Password"
+             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4682A9]" required />
+
+      <button type="submit"
+              class="w-full bg-[#4682A9] text-white py-2 rounded-lg hover:bg-[#356A8B] transition">
+        Login
+      </button>
+
+      <p class="text-center text-sm text-gray-600">
+        Don't have an account?
+        <a href="{{ url_for('routes.signup') }}" class="text-[#4682A9] font-semibold hover:underline">Sign Up</a>
+      </p>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureFaceID</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cover bg-center bg-no-repeat min-h-screen text-[#4682A9] flex flex-col"
+      style="background-image: url('{{ url_for('static', filename='back.avif') }}');">
+
+  <!-- Navbar -->
+  <nav class="bg-gray-800 relative">
+  <div class="w-full px-0">
+    <div class="flex items-center justify-between h-16 relative ">
+
+      <!-- LEFT: Logo -->
+      <div class="flex-shrink-0 mx-8">
+        <img class="h-8 w-auto" src="{{ url_for('static', filename='img2.png') }}" alt="Logo" />
+      </div>  
+
+      <!-- CENTER: Navigation Links (absolute center) -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 flex space-x-6">
+        <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+        <a href="/students" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">📚 Students</a>
+        <a href="/calendar" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">📅 Schedule</a>
+      </div>
+
+      <!-- RIGHT: Notification + Profile -->
+      <div class="flex items-center space-x-4">
+        <button class="text-gray-400 hover:text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75A8.967 8.967 0 013.688 15.772a23.852 23.852 0 005.455 1.31m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+        </button>
+
+        <!-- Profile dropdown -->
+        <div class="relative">
+          <button onclick="toggleDropdown()" id="profileButton" class="flex text-sm rounded-full bg-gray-800 focus:ring-2 focus:ring-white">
+            <img class="h-8 w-8 rounded-full" src="{{ url_for('static', filename='img1.png') }}" alt="User" />
+          </button>
+          <div id="profileDropdown" class="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg z-10 hidden">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700">Your Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700">Settings</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700">Sign out</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex items-center justify-center px-4 h-[100%] min-h-[120vh] ">
+    <div class="bg-[#91C8E4] p-10 rounded-2xl shadow-xl w-full max-w-md text-center space-y-6 mt-10 ">
+      <h1 class="text-3xl font-bold text-[#749BC2]">SmartEntry Attendance</h1>
+
+      <a href="/register" class="block">
+        <button class="w-full bg-[#FFFBDE] text-black font-semibold py-3 rounded hover:opacity-90 transition">
+          Register Face
+        </button>
+      </a>
+
+      <a href="/recognize" class="block">
+        <button class="w-full bg-green-600 text-white font-semibold py-3 rounded hover:opacity-90 transition">
+          Start Attendance
+        </button>
+      </a>
+
+      <a href="/evaluate" class="block">
+        <button class="w-full bg-yellow-500 text-black font-semibold py-3 rounded hover:opacity-90 transition">
+          Evaluate Accuracy
+        </button>
+      </a>
+    </div>
+  </main>
+  
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="bg-gray-800 text-white w-full px-0">
+  <div class="w-full px-0">
+    <div class="sm:text-left mx-8">
+      <h2 class="text-lg font-semibold">SmartEntry</h2>
+      <p class="text-sm text-gray-400">Facial recognition made secure and easy.</p>
+    </div>
+
+    <div class="mt-4 sm:mt-0 flex justify-center  items-center sm:justify-end space-x-6">
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+      <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+      <a href="mailto:support@securefaceid.com" class="text-gray-400 hover:text-white text-sm">Contact</a>
+    </div>
+  </div>
+
+  <div class="text-center text-sm text-gray-500 py-2 border-t border-gray-700">
+    &copy; 2025 SmartEntry. All rights reserved.
+  </div>
+</footer>
+
+
+  <!-- Script to toggle dropdown -->
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("profileDropdown");
+      dropdown.classList.toggle("hidden");
+    }
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", function (e) {
+      const profileBtn = document.getElementById("profileButton");
+      const dropdown = document.getElementById("profileDropdown");
+      if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>

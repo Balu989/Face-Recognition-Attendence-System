@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#FFFBD6]">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar Attendance View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function toggleCalendar() {
+            const calendarDiv = document.getElementById("calendar-section");
+            calendarDiv.classList.toggle("hidden");
+        }
+    </script>
+</head>
+<body class="bg-cover bg-center bg-no-repeat min-h-screen text-[#4682A9] flex flex-col items-center justify-center"
+      style="background-image: url('{{ url_for('static', filename='back.avif') }}');">
+
+    <div class="bg-[#91C8E4] p-8 rounded-xl shadow-xl w-full max-w-lg text-center">
+        <h1 class="text-2xl font-bold text-[#1B3C73] mb-6">📅 View  Time Table</h1>
+
+        <button onclick="toggleCalendar()" class="bg-blue-600 text-white px-5 py-2 rounded shadow hover:bg-blue-700 active:scale-95 transition">
+            Show Calendar
+        </button>
+
+        <!-- 🗓️ Hidden Calendar Section -->
+        <div id="calendar-section" class="hidden mt-6 border border-blue-300 rounded-lg bg-white shadow p-4">
+            <h2 class="text-xl font-semibold mb-4 text-[#444]">🗓️ Time Table</h2>
+            <input type="month" class="p-2 border rounded w-full mb-4">
+            <p class="text-sm text-gray-600">Use this to filter and fetch attendance by month (feature under construction).</p>
+        </div>
+
+        <div class="mt-6">
+            <a href="/" class="text-blue-800 underline">← Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>

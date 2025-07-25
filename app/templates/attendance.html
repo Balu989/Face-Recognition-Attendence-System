@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#FFFBD6]">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Attendance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cover bg-center bg-no-repeat min-h-screen text-[#4682A9] flex flex-col items-center justify-center"
+      style="background-image: url('{{ url_for('static', filename='back.avif') }}');">    
+      <div class="bg-[#91C8E4] p-10 rounded-lg shadow-xl w-full max-w-md text-center">
+        <h1 class="text-2xl font-bold text-[#7498C2] mb-6">Start Attendance</h1>
+        <form action="/recognize" method="POST">
+            <input type="text" name="branch" placeholder="Enter Branch (e.g. cse)" class="w-full p-2 rounded mb-4" required>
+            <input type="text" name="section" placeholder="Enter Section (e.g. b1)" class="w-full p-2 rounded mb-4" required>
+
+            <select name="subject" class="w-full p-2 rounded mb-4" required>
+                <option value="">Select Subject</option>
+                <option value="Math">Math</option>
+                <option value="Physics">Physics</option>
+                <option value="CS">Computer Science</option>
+            </select>
+
+            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded shadow">
+                Start Attendance
+            </button>
+        </form>
+        <div class="mt-4">
+            <a href="/" class="text-blue-800 underline">← Back to Home</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>
